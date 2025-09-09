@@ -5,103 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Registration Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .form-container {
-      background: #fff;
-      padding: 20px 30px;
-      border: 2px solid #333;
-      border-radius: 8px;
-      width: 400px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #2d89ef;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      grid-gap: 15px;
-      align-items: center;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input, select {
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      width: 100%;
-    }
-
-    .gender-options {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    button {
-      grid-column: span 2;
-      padding: 10px;
-      background-color: #2d89ef;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #1b5fad;
-    }
-  </style>
+<title>student registration form</title>
+<link rel="stylesheet"href="grid.css">
+<style>
+.temp{
+    border:2px solid block;
+    width:30%;
+    /*margin-left:35%;*/
+    margin-top: 5%;
+    padding: 10px;
+    background-color: aqua;
+}
+.form{
+    display:student registration form;
+    grid-template-columns: 1fr 2fr;
+    grid-gap:20px;
+}
+button{
+    grid-column:span 2 ;
+}
+</style>
 </head>
 <body>
-  <div class="form-container">
-    <h2>Student Registration</h2>
-    <form class="form-grid">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-      <label for="usn">USN</label>
-      <input type="text" id="usn" name="usn" placeholder="Enter your USN" required>
-
-      <label for="gender">Gender</label>
-      <div class="gender-options">
-        <input type="radio" id="male" name="gender" value="Male">
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="Female">
-        <label for="female">Female</label>
-      </div>
-
-      <label for="phone">Phone</label>
-      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+    <nav>
+        <div class="temp">
+            <form class="form">
+                <label for="student name">Student Name</label>
+                <input type="text"id="student name" student name="student name">   
+                <label for="student email">Student email </label>
+                <input type="student email" id="student name"="student email">
+                <label for="usn">USN</label>
+                <input type="text"id="usn" student name="usn" palceholder="USN">
+                <label for="gender">Gender</label>
+                <input></input>
+                <input type="radio"id="male"name="gender"value="Male">Male</button>
+                <input type="radio"id="female"name="gender"value="Female">Female</button>
+                <label for="contact">Contact</label>
+                <input type="text" id="contact"name="contact"placeholder="Contact">
+                <label for="section">section</label>
+                <input type="text" id="section"name="section"placeholder="section">
+                <button type="ok"value="Ok">Ok</button>
+            </form>
+        </div>
+        <table>
+            <tr>
+                <td>Student Name</td>
+                <td><input type="text"id="s" name="s"></td>
+            </tr>
+            <tr>
+                <td>Student Email</td>
+                <td><input type="student email"id="e" name="e"></td>
+            </tr>
+            <tr>
+                <td>USN</td>
+                <td><input type="text"id="u" name="u"></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td><input type="text"id="c" name="c"></td>
+            </tr>
+            <tr>
+                <td>section</td>
+                <td><input type="text"id="s" name="s"></td>
+            </tr>
+            <tr align="center">
+                <td><input type="Ok"value="Ok"></td>
+            </tr>
+        </table>
 </body>
 </html>
