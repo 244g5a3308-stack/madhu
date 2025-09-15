@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Task Editable</title>
+  <style>
+  body{
+    background: white;
+    justify-content : center;
+  }
+  .mydiv{
+    background : lightblue;
+    max-width : 400px;
+    display:grid;
+    margin:20px;
+    border-radius:10px;
+    padding : 20px;
+  }
+  button{
+    background : #007bff;
+    border-radius : 5px;
+  }
+  button : hover{
+    background : #0056b3;
+  </style>
+</head>
+<body>
+  <div class="mydiv">
+    <h1>Task Scheduler</h1>
+    <ul class="tasklist">
+      <li class="list">task1 <button class="done">complete</button>&nbsp;<button class="delete">delete</button></li>
+      <li class="list">task2 <button class="done">complete</button>&nbsp;<button class="delete">delete</button></li>
+    </ul>
+    <input type="text" class="taskInput" placeholder="enter task name to add"> &nbsp;
+    <button class="add">Add Task</button>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // Add Task
+      $(".add").click(function () {
+        let task = $(".taskInput").val();
+        if (task !== "") {
+          $(".tasklist").append(
+            `<li class='list'>${task} 
+              <button class='done'>complete</button>
+              <button class='delete'>delete</button>
+            </li>`
+          );
+          $(".taskInput").val("");
+        }
+      });
+
+      // Mark complete
+      $(".tasklist").on("click", ".done", function () {
+        $(this).parent().css("background-color", "yellow");
+      });
+
+      // Delete
+      $(".tasklist").on("click", ".delete", function () {
+        $(this).parent().remove();
+      });
+
+      // Edit on double-click
+      $(".tasklist").on("dblclick", ".list", function () {
+        let li = $(this);
+        let currentText = li.clone()       // clone to avoid including buttons
+                          .children()
+                          .remove()
+                          .end()
+                          .text()
+                          .trim();
+
+        let input = $("<input type='text' class='edit'>").val(currentText);
+        li.html(input); // replace content with input
+        input.focus();
+
+        // Save on Enter
+        input.keydown(function (e) {
+          if (e.key === "Enter") {
+            let newText = $(this).val();
+            li.html(`${newText} 
+              <button class='done'>complete</button>
+              <button class='delete'>delete</button>`);
+          }
+        });
+
+        // Save on blur
+        input.blur(function () {
+          let newText = $(this).val();
+          li.html(`${newText} 
+            <button class='done'>complete</button>
+            <button class='delete'>delete</button>`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
