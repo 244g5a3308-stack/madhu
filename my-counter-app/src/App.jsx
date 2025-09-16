@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
 
-function Count() {
-  const [count, setCount] = useState(0)
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  // Determine background color
+  const backgroundColor = count > 5 ? 'purple' : 'red';
+
   return (
-    <div className='app'>
-      <h2>counter: {count}</h2>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    <div style={{ backgroundColor, padding: '20px', borderRadius: '8px', width: '500px', textAlign: 'center' }}>
+      <h2>Counter: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increment</button> &nbsp;
+      <button onClick={() => setCount(count - 1)}>decrement</button> &nbsp;
       <button onClick={() => setCount(0)}>reset</button>
-    </div>
-  )
+          </div>
+  );
 }
 
-export default Count
-
+export default Counter;
